@@ -21,7 +21,7 @@
 
 {
     'name': 'Sales Target Marketing',
-    'version': '8.0.1.0.0',
+    'version': '9.0.1.0.0',
     'author': 'Tryon InfoSoft',
     'category': 'Sales',
     'description': """
