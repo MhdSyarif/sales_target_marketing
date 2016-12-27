@@ -37,7 +37,7 @@
             <field name="target">new</field>
         </record>
 
-        <menuitem id="menu_sales_target_marketing" name="Sales Target Marketing" parent="base.menu_sales" sequence="120" action="action_sale_target_marketing_wizard"/>
+        <menuitem id="menu_sales_target_marketing" name="Sales Target Marketing" parent="sales_team.menu_sales" sequence="120" action="action_sale_target_marketing_wizard"/>
 
     </data>
 </openerp>

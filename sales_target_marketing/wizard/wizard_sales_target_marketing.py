@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api,_
+from odoo import models, fields, api,_
 
 
 class wizard_sale_target_marketing(models.TransientModel):
@@ -39,8 +39,7 @@ class wizard_sale_target_marketing(models.TransientModel):
             'id': self.id,
             'form': data
         }
-        return self.pool['report'].get_action(self._cr, self._uid, [],
-                                              'sales_target_marketing.sale_target_marketing_report',
-                                              data=datas, context=self._context)
+        return self.env['report'].get_action([], 'sales_target_marketing.sale_target_marketing_report',
+                                              data=datas)
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

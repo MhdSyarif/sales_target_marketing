@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import api, models
+from odoo import api, models
 from datetime import datetime
 
 
@@ -27,7 +27,7 @@ class sale_target_marketing_report(models.AbstractModel):
     _name = 'report.sales_target_marketing.sale_target_marketing_report'
 
     @api.multi
-    def render_html(self, data=None):
+    def render_html(self, docids, data=None):
         report_obj = self.env['report']
         report = report_obj._get_report_from_name('sales_target_marketing.sale_target_marketing_report')
         docargs = {
@@ -72,8 +72,8 @@ class sale_target_marketing_report(models.AbstractModel):
             sql = """SELECT distinct so.partner_id as partner_id, rp.name as cust_name FROM sale_order so
                     LEFT JOIN res_partner rp on so.partner_id = rp.id
                     WHERE so.state not in ('draft', 'sent', 'cancel')"""
-        self._cr.execute(sql)
-        result = self._cr.dictfetchall()
+        self.env.cr.execute(sql)
+        result = self.env.cr.dictfetchall()
         return result
 
     def _get_total_purchase(self, obj, partner_id, column_id):
@@ -91,7 +91,7 @@ class sale_target_marketing_report(models.AbstractModel):
                     WHERE so.state not in ('draft', 'sent', 'cancel')
                     AND sol.product_id = %s
                     AND sol.order_partner_id = %s """ % (column_id.id, partner_id)
-        self._cr.execute(sql)
-        return self._cr.fetchone()[0] or 0
+        self.env.cr.execute(sql)
+        return self.env.cr.fetchone()[0] or 0
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

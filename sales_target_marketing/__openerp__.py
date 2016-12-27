@@ -21,7 +21,7 @@
 
 {
     'name': 'Sales Target Marketing',
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'author': 'Tryon InfoSoft',
     'category': 'Sales',
     'description': """
@@ -32,7 +32,7 @@
     """,
     'website': 'https://www.tryoninfosoft.com',
     'summary': 'Used for target marketing.',
-    'depends': ['base', 'sale', 'product'],
+    'depends': ['base', 'sales_team', 'sale', 'product'],
     'data': [
              'report.xml',
              'wizard/wizard_sales_target_marketing.xml',
